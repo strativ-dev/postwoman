@@ -39,6 +39,8 @@
 import { defineComponent } from "@nuxtjs/composition-api"
 
 export default defineComponent({
+  layout: "private",
+
   head() {
     return {
       title: `${this.$t("navigation.realtime")} • Hoppscotch`,

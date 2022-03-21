@@ -1,26 +1,26 @@
 <template>
-  <SmartModal
+  <!-- <SmartModal
     v-if="show"
     :title="`${$t('auth.login_to_hoppscotch')}`"
     max-width="sm:max-w-md"
     dialog
     @close="hideModal"
-  >
-    <template #body>
-      <div v-if="mode === 'sign-in'" class="flex flex-col px-2 space-y-2">
-        <!--<SmartItem
+  > -->
+  <!-- <template #body> -->
+  <div v-if="mode === 'sign-in'" class="flex flex-col px-2 space-y-2">
+    <!--<SmartItem
           :loading="signingInWithGitHub"
           svg="auth/github"
           :label="`${$t('auth.continue_with_github')}`"
           @click.native="signInWithGithub"
         />-->
-        <SmartItem
-          :loading="signingInWithGoogle"
-          svg="auth/google"
-          :label="`${$t('auth.continue_with_google')}`"
-          @click.native="signInWithGoogle"
-        />
-        <!--<SmartItem
+    <SmartItem
+      :loading="signingInWithGoogle"
+      svg="auth/google"
+      :label="`${$t('auth.continue_with_google')}`"
+      @click.native="signInWithGoogle"
+    />
+    <!--<SmartItem
           :loading="signingInWithMicrosoft"
           svg="auth/microsoft"
           :label="`${$t('auth.continue_with_microsoft')}`"
@@ -31,8 +31,8 @@
           :label="`${$t('auth.continue_with_email')}`"
           @click.native="mode = 'email'"
         />-->
-      </div>
-      <!--<form
+  </div>
+  <!--<form
         v-if="mode === 'email'"
         class="flex flex-col space-y-2"
         @submit.prevent="signInWithEmail"
@@ -74,8 +74,8 @@
           </p>
         </div>
       </div>-->
-    </template>
-    <!--<template #footer>
+  <!-- </template> -->
+  <!--<template #footer>
       <p v-if="mode === 'sign-in'" class="text-secondaryLight">
         By signing in, you are agreeing to our
         <SmartAnchor
@@ -115,7 +115,7 @@
         />
       </p>
     </template>-->
-  </SmartModal>
+  <!-- </SmartModal> -->
 </template>
 
 <script lang="ts">

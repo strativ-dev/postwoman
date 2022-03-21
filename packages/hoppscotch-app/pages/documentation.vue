@@ -120,6 +120,8 @@ import folderBody from "~/assets/md/folderBody.md"
 import { useReadonlyStream } from "~/helpers/utils/composables"
 
 export default defineComponent({
+  layout: "private",
+
   setup() {
     return {
       currentUser: useReadonlyStream(currentUser$, null),

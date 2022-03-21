@@ -25,6 +25,7 @@ export default defineComponent({
     }
     next()
   },
+  layout: "private",
   setup() {
     const nuxt = useNuxt()
 

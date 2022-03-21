@@ -1,40 +1,7 @@
 <template>
-  <div class="flex w-screen h-screen">
-    <Splitpanes class="no-splitter" :dbl-click-splitter="false" horizontal>
-      <Pane v-if="!ZEN_MODE" style="height: auto">
-        <AppHeader />
-      </Pane>
-      <Pane class="flex flex-1 hide-scrollbar !overflow-auto">
-        <Splitpanes
-          class="no-splitter"
-          :dbl-click-splitter="false"
-          :horizontal="!mdAndLarger"
-        >
-          <Pane
-            style="width: auto; height: auto"
-            class="hide-scrollbar !overflow-auto flex flex-col"
-          >
-            <AppSidenav />
-          </Pane>
-          <Pane class="flex flex-1 hide-scrollbar !overflow-auto">
-            <Splitpanes
-              class="no-splitter"
-              :dbl-click-splitter="false"
-              horizontal
-            >
-              <Pane class="flex flex-1 hide-scrollbar !overflow-auto">
-                <main class="flex flex-1 w-full" role="main">
-                  <nuxt class="flex flex-1" />
-                </main>
-              </Pane>
-            </Splitpanes>
-          </Pane>
-        </Splitpanes>
-      </Pane>
-      <Pane style="height: auto">
-        <AppFooter />
-      </Pane>
-    </Splitpanes>
+  <div>
+    <nuxt v-if="!$slots.default" />
+    <slot />
   </div>
 </template>
 
@@ -46,7 +13,7 @@ import {
   useRouter,
   watch,
 } from "@nuxtjs/composition-api"
-import { Splitpanes, Pane } from "splitpanes"
+// import { Splitpanes, Pane } from "splitpanes"
 import "splitpanes/dist/splitpanes.css"
 import { breakpointsTailwind, useBreakpoints } from "@vueuse/core"
 import { setupLocalPersistence } from "~/newstore/localpersistence"
@@ -166,7 +133,7 @@ function defineJumpActions() {
 }
 
 export default defineComponent({
-  components: { Splitpanes, Pane },
+  // components: { DefaultLayout, Splitpanes, Pane },
   setup() {
     appLayout()
 
@@ -197,9 +164,10 @@ export default defineComponent({
   beforeMount() {
     setupLocalPersistence()
 
-    // if (!currentUser?.value) {
-    //   this.$router.push("/login")
-    // }
+    console.log(currentUser?.value, "currentUser")
+    if (!currentUser?.value) {
+      this.$router.push("/login")
+    }
   },
   async mounted() {
     performMigrations()
@@ -244,4 +212,13 @@ export default defineComponent({
     console.log("$slots", this.$slots)
   },
 })
+
+// export default {
+//   beforeMount() {
+//     console.log(currentUser?.value, "currentUser")
+//     if (!currentUser?.value) {
+//       this.$router.push("/login")
+//     }
+//   },
+// }
 </script>

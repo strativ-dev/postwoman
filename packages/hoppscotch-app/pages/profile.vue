@@ -280,6 +280,7 @@ useMeta({
 
 <script lang="ts">
 export default defineComponent({
+  layout: "private",
   head: {},
 })
 </script>

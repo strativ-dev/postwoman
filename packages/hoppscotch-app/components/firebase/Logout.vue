@@ -47,6 +47,7 @@ export default defineComponent({
       try {
         await signOutUser()
         this.$toast.success(`${this.$t("auth.logged_out")}`)
+        // this.$router.push("/")
       } catch (e) {
         console.error(e)
         this.$toast.error(`${this.$t("error.something_went_wrong")}`)

@@ -42,11 +42,11 @@
           class="hidden md:flex"
           @click.native="showLogin = true"
         />
-        <ButtonPrimary
+        <!-- <ButtonPrimary
           v-if="currentUser === null"
           :label="t('header.login')"
           @click.native="showLogin = true"
-        />
+        /> -->
         <div v-else class="inline-flex items-center space-x-2">
           <ButtonPrimary
             v-tippy="{ theme: 'tooltip' }"
@@ -136,14 +136,14 @@
       </div>
     </header>
     <AppAnnouncement v-if="!network.isOnline" />
-    <FirebaseLogin :show="showLogin" @hide-modal="showLogin = false" />
+    <!-- <FirebaseLogin :show="showLogin" @hide-modal="showLogin = false" /> -->
     <AppSupport :show="showSupport" @hide-modal="showSupport = false" />
     <TeamsModal :show="showTeamsModal" @hide-modal="showTeamsModal = false" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, reactive, ref } from "@nuxtjs/composition-api"
+import { onMounted, reactive, ref, onUpdated } from "@nuxtjs/composition-api"
 import { useNetwork } from "@vueuse/core"
 import intializePwa from "~/helpers/pwa"
 import { probableUser$ } from "~/helpers/fb/auth"
@@ -207,6 +207,13 @@ onMounted(() => {
       ],
     })
   }
+})
+
+onUpdated(() => {
+  /* eslint-disable-next-line */
+  localStorage.setItem("postwoman-token", currentUser?.value?.accessToken)
+  /* eslint-enable-next-line */
+  console.log({ currentUser }, "onUpdated updated")
 })
 
 // Template refs

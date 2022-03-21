@@ -120,6 +120,7 @@ function setupRequestSync(
 }
 
 export default defineComponent({
+  // layout: "private",
   setup() {
     const requestForSync = ref<HoppRESTRequest | null>(null)
 

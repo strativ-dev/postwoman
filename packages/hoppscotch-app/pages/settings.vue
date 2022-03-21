@@ -357,6 +357,8 @@ const getColorModeName = (colorMode: string) => {
 
 <script lang="ts">
 export default defineComponent({
+  layout: "private",
+
   head() {
     return {
       title: `${this.$t("navigation.settings")} • Hoppscotch`,

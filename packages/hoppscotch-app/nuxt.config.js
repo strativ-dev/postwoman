@@ -349,5 +349,6 @@ export default {
   router: {
     linkActiveClass: "active-link",
     linkExactActiveClass: "exact-active-link",
+    // middleware: ["guest"],
   },
 }
