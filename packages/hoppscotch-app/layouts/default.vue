@@ -58,10 +58,13 @@ import { hookKeybindingsListener } from "~/helpers/keybindings"
 import { defineActionHandler } from "~/helpers/actions"
 import { useSentry } from "~/helpers/sentry"
 
-import { probableUser$ } from "~/helpers/fb/auth"
-import { useReadonlyStream, useColorMode } from "~/helpers/utils/composables"
+// import { probableUser$ } from "~/helpers/fb/auth"
+import {
+  // useReadonlyStream,
+  useColorMode,
+} from "~/helpers/utils/composables"
 
-const currentUser = useReadonlyStream(probableUser$, null)
+// const currentUser = useReadonlyStream(probableUser$, null)
 
 function appLayout() {
   const rightSidebar = useSetting("SIDEBAR")
