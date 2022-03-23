@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 Allow: /
-Sitemap: http://3.111.252.33/sitemap.xml
+Sitemap: https://postwoman.strativ-support.se/sitemap.xml
